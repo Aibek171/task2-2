@@ -6,7 +6,7 @@ chat_id = 1121374935 # Ваш chat ID, не меняйте название пе
 
 def solution(x: np.array, y: np.array) -> bool:
     alpha = 0.01
-    stat, p_value = MMD(compute_kernel="poly").test(x, y)
+    stat, p_value = MMD(compute_kernel="laplacian", gamma=1).test(x, y)
     if p_value < alpha:
         return True
     else:
